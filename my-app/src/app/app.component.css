@@ -1,0 +1,69 @@
+h1 {
+    color: #1b6458;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #99b8c7;
+    font-size: 16px;
+}
+.text-container {
+    width: 400px;
+    margin: 50px auto;
+    border: 1px solid #1b6458;
+    padding: 50px;
+    text-align: center;
+}
+.text-container-first {
+    width: 800px;
+}
+.block-container {
+    display: inline-block;
+    width: 32%;
+    height: 375px;
+    text-align: center;
+}
+button {
+    width: 80%;
+    height: 40px;
+    cursor: pointer;
+    margin: 15px auto;
+}
+button:hover {
+    transform: scale(1.1);
+    background-color: pink;
+}
+img {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+.first-text {
+  color: #bcd4d0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding: 10px 0;
+
+}
+.add-color {
+    width: 100px;
+    height: auto;
+    background-color: #84c084;
+}
+/*create buttons that change colors*/
+
+
+:host(.yellow-style) {
+        background-color: yellow;
+        border: 1px solid black;
+        display:block;
+      }
+:host(.red-style) {
+    background-color: red;
+    border: 1px solid black;
+    color: white;
+    display:block;
+}

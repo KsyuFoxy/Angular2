@@ -1,0 +1,57 @@
+<h1>{{title1}}</h1>
+
+<div class="text-container text-container-first">
+        <div [style.background]="colorValue[0]" class="block-container">
+            <p class='first-text'>Container {{number[0]}} </p>
+            <p> {{text}} </p>
+            <button (click)="showImage = !showImage;">Toggle image</button>
+            <img [style.display]='changeImage()' src="{{images[0]}}"/>
+        </div>
+
+        <div [style.background]="colorValue[1]" class="block-container">
+            <p class='first-text'>Container {{number[1]}} </p>
+            <p> {{text}} </p>
+            <button (click)="showImage = !showImage;">Toggle image</button>
+            <img [style.display]='changeImage()' src="{{images[1]}}"/>
+        </div>
+
+        <div [style.background]="colorValue[2]" class="block-container">
+            <p class='first-text'>Container {{number[2]}} </p>
+            <p> {{text}} </p>
+            <button (click)="showImage = !showImage;">Toggle image</button>
+            <img [style.display]='changeImage()' src="{{images[2]}}"/>
+        </div>
+</div>
+
+<!-- create list of elements     -->
+<div class="text-container">
+    <h1>{{title}}</h1>
+    <p>My favorite color is: {{myColor}}</p>
+    <p>Colors:</p>
+    <ul>
+        <li *ngFor="let color of colors">
+                {{color}}
+        </li>
+    </ul>
+    <input #newColor
+        (keyup.enter)="addColor(newColor.value)"
+        (blur)="addColor(newColor.value); newColor.value='' ">
+    <button (click)='addColor(newColor.value)' class='add-color'>Add</button>
+
+
+    <p *ngIf='colors.length > 3'>There are many colors!</p>
+</div>
+
+<!-- create text on input     -->
+<div class="text-container">
+    <p>Enter some text</p>
+    <input #box (keyup)='onKey(box.value)'>
+    <p>{{values}}</p>
+</div>
+
+<!-- create buttons that change colors -->
+<div class="text-container">
+    <div [style]="activeStyle"> change color </div>
+    <button (click)="activeStyle='yellow'">yellow</button>
+    <button (click)="activeStyle='red'">red</button>
+</div>
