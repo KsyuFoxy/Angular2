@@ -23,6 +23,17 @@
         </div>
 </div>
 
+<!-- the same first section with other Code -->
+<div class="text-container text-container-first">
+        <div *ngFor='let box of boxes; let i = index' [style.background]="box.color" class="block-container-multi">
+            <p class='first-text'>Container {{box.id}} </p>
+            <p>index {{i}} {{box.name}} </p>
+            <button (click)="isShown = !isShown;" >Toggle image {{i}}</button>
+            <img [style.display]="isShown ? 'none' : 'block' " src="{{box.image}}"/>
+        </div>
+</div>
+
+
 <!-- create list of elements     -->
 <div class="text-container">
     <h1>{{title}}</h1>
@@ -45,7 +56,7 @@
 <!-- create text on input     -->
 <div class="text-container">
     <p>Enter some text</p>
-    <input #box (keyup)='onKey(box.value)'>
+    <input #inputText (keyup)='onKey(inputText.value)'>
     <p>{{values}}</p>
 </div>
 

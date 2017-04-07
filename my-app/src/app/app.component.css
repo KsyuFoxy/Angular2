@@ -21,9 +21,10 @@ p {
 }
 .block-container {
     display: inline-block;
-    width: 32%;
+    width: 30%;
     height: 375px;
     text-align: center;
+    margin: 0 10px;
 }
 button {
     width: 80%;
@@ -53,6 +54,30 @@ img {
     height: auto;
     background-color: #84c084;
 }
+/*section 2*/
+.block-container-multi {
+    display: inline-block;
+    width: 30%;
+    height: 206px;
+    text-align: center;
+    margin: 10px;
+}
+.block-container-multi p {
+    margin: 0;
+}
+.block-container-multi .first-text {
+    font-size: 16px;
+    padding: 0;
+    margin: 10px auto;
+}
+.block-container-multi button {
+    margin: 7px auto;
+    height: 30px;
+}
+.block-container-multi img {
+    width: 57%;
+}
+
 /*create buttons that change colors*/
 
 

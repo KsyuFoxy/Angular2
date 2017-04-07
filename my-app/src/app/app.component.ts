@@ -1,4 +1,5 @@
 import { Component, Input, HostBinding, NgModule } from '@angular/core';
+import { ImageBox } from './imagebox';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,8 @@ export class AppComponent {
     "https://static.pexels.com/photos/132419/pexels-photo-132419.jpeg"
     ];
 
-    showImage: false;
 
+    showImage: false;
     changeImage() {
         if(this.showImage) {
             return 'none';
@@ -25,6 +26,20 @@ export class AppComponent {
             return 'block';
         }
     }
+// first container valiant 2
+    boxes = [
+        new ImageBox(1, 'https://static.pexels.com/photos/216657/pexels-photo-216657.jpeg', '#1b6458', 'Green'),
+        new ImageBox(2, 'https://static.pexels.com/photos/133184/pexels-photo-133184.jpeg', '#ef7c7c', 'Red'),
+        new ImageBox(3, 'https://static.pexels.com/photos/132419/pexels-photo-132419.jpeg', '#3939d3', 'Blue'),
+        new ImageBox(4, 'https://static.pexels.com/photos/216657/pexels-photo-216657.jpeg', '#ef7c7c', 'Red'),
+        new ImageBox(5, 'https://static.pexels.com/photos/133184/pexels-photo-133184.jpeg', '#3939d3', 'Blue'),
+        new ImageBox(6, 'https://static.pexels.com/photos/132419/pexels-photo-132419.jpeg', '#1b6458', 'Green'),
+        new ImageBox(7, 'https://static.pexels.com/photos/216657/pexels-photo-216657.jpeg', '#1b6458', 'Green'),
+        new ImageBox(8, 'https://static.pexels.com/photos/133184/pexels-photo-133184.jpeg', '#ef7c7c', 'Red'),
+        new ImageBox(9, 'https://static.pexels.com/photos/132419/pexels-photo-132419.jpeg', '#3939d3', 'Blue'),
+    ];
+
+
 // create a list of elements
     title = 'Tour of Colors';
     colors = ['Red', 'Violet', 'Blue', 'Green'];
