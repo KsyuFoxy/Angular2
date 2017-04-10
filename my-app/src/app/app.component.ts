@@ -61,7 +61,7 @@ export class AppComponent {
 
 // create buttons that change colors
 // activeStyle:string = 'yellow';
-@Input() style;
+// @Input() style;
 
 @HostBinding('class.yellow-style') yellowStyle:boolean = false;
 @HostBinding('class.red-style') redStyle:boolean = false;
@@ -80,18 +80,18 @@ export class AppComponent {
       }
   }
   // calendar
-inputInfo: '';
-availability: '';
-option: '';
-inputName: '';
-inputDate: '';
 
-getInputInfo(inputName, availability, option, inputDate) {
-        this.inputName = inputName;
-        this.availability = availability;
-        this.option = option;
-        this.inputDate= inputDate;
-       this.inputInfo = this.inputName + this.availability + this.option + this.inputDate;
+formData = {
+    inputDate: '',
+    inputInfo: '',
+    availability: '',
+    option: '',
+    inputName: ''
+};
+
+getInputInfo() {
+    this.formData.inputInfo = this.formData.inputName + this.formData.availability + this.formData.option + this.formData.inputDate;
+    console.log(this.formData);
 }
 
 }

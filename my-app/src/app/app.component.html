@@ -76,23 +76,23 @@
             <img src="">
         </div>
         <form #f="ngForm" class="modal-form" novalidate>
-            <input #inputName type="text" placeholder="Name">
+            <input type="text" placeholder="Name" name="inputName" [(ngModel)]="formData.inputName">
             <p>1. Are you available? {{availability}}</p>
-            <input #available (click)='availability=available.value' (change)='addOption=false; addCalendar=false' name='availability' type="radio" value="Yes">Yes<br>
-            <input #notavailable (click)='availability=notavailable.value' (change)='addOption=notavailable.checked' name='availability' type="radio" value="No">No<br>
+            <input #available (click)='formData.availability=available.value' (change)='addOption=false; addCalendar=false' name='availability' type="radio" value="Yes">Yes<br>
+            <input #notavailable (click)='formData.availability=notavailable.value' (change)='addOption=notavailable.checked' name='availability' type="radio" value="No">No<br>
             <div *ngIf="addOption" class="add-options">
                 <p>2. What is the reason? {{option}}</p>
-                    <input #holiday (click)='option=holiday.value' (change)='addCalendar=holiday.checked' name='option' type="radio" value='holiday'>im Urlaub<br>
-                    <input #trip (click)='option=trip.value' (change)='addCalendar=trip.checked' name='option' type="radio" value='trip'>in der Geschäftsreise<br>
-                    <input #ill (click)='option=ill.value' (change)='addCalendar=ill.checked' name='option' type="radio" value='ill'>Krank<br>
+                    <input #holiday (click)='formData.option=holiday.value' (change)='addCalendar=holiday.checked' name='option' type="radio" value='holiday'>im Urlaub<br>
+                    <input #trip (click)='formData.option=trip.value' (change)='addCalendar=trip.checked' name='option' type="radio" value='trip'>in der Geschäftsreise<br>
+                    <input #ill (click)='formData.option=ill.value' (change)='addCalendar=ill.checked' name='option' type="radio" value='ill'>Krank<br>
 
                     <div *ngIf='addCalendar' class="calendar">
                         <p>3. Bis wann?</p>
-                        <input #inputDate type="number" name="" placeholder="Date:">
+                        <input type="text" placeholder="Date" [(ngModel)]="formData.inputDate" name="inputDate" >
                     </div>
             </div>
-            <button (click)='getInputInfo(inputName.value, availability, option, inputDate.value)' type="submit" name="button">Submit</button>
-            <p>Results: {{inputInfo}}</p>
+            <button (click)='getInputInfo()' type="submit" name="button">Submit</button>
+            <p>Results: {{formData.inputInfo}}</p>
 
         </form>
 
