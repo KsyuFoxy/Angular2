@@ -39,6 +39,8 @@ export class AppComponent {
         new ImageBox(9, 'https://static.pexels.com/photos/132419/pexels-photo-132419.jpeg', '#3939d3', 'Blue'),
     ];
 
+    isShown = this.boxes.map(() => true); // [true, true, true]
+
 
 // create a list of elements
     title = 'Tour of Colors';
