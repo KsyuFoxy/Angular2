@@ -28,11 +28,12 @@
         <div *ngFor='let box of boxes; let i = index' [style.background]="box.color" class="block-container-multi">
             <p class='first-text'>Container {{box.id}} </p>
             <p>index {{i}} {{box.name}} </p>
-            <button (click)="isShown[i] = !isShown[i];" >Toggle image {{i}}</button>
-            <img [style.display]="isShown[i] ? 'block' : 'none' " src="{{box.image}}"/>
+            <button (click)="isShown[i] = !isShown[i];" >Toggle image {{box.id}}</button>
+            <div class="image-wrapper">
+                <img [style.display]="isShown[i] ? 'block' : 'none' " src="{{box.image}}"/>
+            </div>
         </div>
 </div>
-
 
 <!-- create list of elements     -->
 <div class="text-container">
@@ -65,4 +66,35 @@
     <div [style]="activeStyle"> change color </div>
     <button (click)="activeStyle='yellow'">yellow</button>
     <button (click)="activeStyle='red'">red</button>
+</div>
+
+
+<!-- create modal box  without separate window   -->
+<div class="text-container">
+    <div class="modal-content">
+        <div class="photo-wrapper">
+            <img src="">
+        </div>
+        <form #f="ngForm" class="modal-form" novalidate>
+            <input #inputName type="text" placeholder="Name">
+            <p>1. Are you available? {{availability}}</p>
+            <input #available (click)='availability=available.value' (change)='addOption=false; addCalendar=false' name='availability' type="radio" value="Yes">Yes<br>
+            <input #notavailable (click)='availability=notavailable.value' (change)='addOption=notavailable.checked' name='availability' type="radio" value="No">No<br>
+            <div *ngIf="addOption" class="add-options">
+                <p>2. What is the reason? {{option}}</p>
+                    <input #holiday (click)='option=holiday.value' (change)='addCalendar=holiday.checked' name='option' type="radio" value='holiday'>im Urlaub<br>
+                    <input #trip (click)='option=trip.value' (change)='addCalendar=trip.checked' name='option' type="radio" value='trip'>in der Geschäftsreise<br>
+                    <input #ill (click)='option=ill.value' (change)='addCalendar=ill.checked' name='option' type="radio" value='ill'>Krank<br>
+
+                    <div *ngIf='addCalendar' class="calendar">
+                        <p>3. Bis wann?</p>
+                        <input #inputDate type="number" name="" placeholder="Date:">
+                    </div>
+            </div>
+            <button (click)='getInputInfo(inputName.value, availability, option, inputDate.value)' type="submit" name="button">Submit</button>
+            <p>Results: {{inputInfo}}</p>
+
+        </form>
+
+    </div>
 </div>

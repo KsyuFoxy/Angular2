@@ -58,7 +58,7 @@ img {
 .block-container-multi {
     display: inline-block;
     width: 30%;
-    height: 206px;
+    height: 210px;
     text-align: center;
     margin: 10px;
 }
@@ -74,8 +74,15 @@ img {
     margin: 7px auto;
     height: 30px;
 }
-.block-container-multi img {
-    width: 57%;
+.block-container-multi .image-wrapper {
+    width: 90%;
+    height: 50%;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.block-container-multi .image-wrapper img {
+    width: 100%;
 }
 
 /*create buttons that change colors*/
@@ -91,4 +98,33 @@ img {
     border: 1px solid black;
     color: white;
     display:block;
+}
+/*add photo, input-text*/
+.modal-content {
+    width: 380px;
+    padding: 10px;
+    background-color: green;
+}
+.photo-wrapper {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+.photo-wrapper img {
+    width: 100%;
+}
+.modal-form {
+    width: 200px;
+    text-align: left;
+    margin: 20px auto;
+}
+.add-options  {
+    color: #b8b0b0;
+    margin-left: 15px;
+}
+.calendar {
+    color: #cbdbe3;
+    margin-left: 15px;
 }

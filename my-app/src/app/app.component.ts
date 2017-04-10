@@ -1,6 +1,7 @@
 import { Component, Input, HostBinding, NgModule } from '@angular/core';
 import { ImageBox } from './imagebox';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,14 +30,14 @@ export class AppComponent {
 // first container valiant 2
     boxes = [
         new ImageBox(1, 'https://static.pexels.com/photos/216657/pexels-photo-216657.jpeg', '#1b6458', 'Green'),
-        new ImageBox(2, 'https://static.pexels.com/photos/133184/pexels-photo-133184.jpeg', '#ef7c7c', 'Red'),
+        new ImageBox(2, 'https://static.pexels.com/photos/133184/pexels-photo-133184.jpeg', '#ef7c7c', 'White'),
         new ImageBox(3, 'https://static.pexels.com/photos/132419/pexels-photo-132419.jpeg', '#3939d3', 'Blue'),
-        new ImageBox(4, 'https://static.pexels.com/photos/216657/pexels-photo-216657.jpeg', '#ef7c7c', 'Red'),
-        new ImageBox(5, 'https://static.pexels.com/photos/133184/pexels-photo-133184.jpeg', '#3939d3', 'Blue'),
-        new ImageBox(6, 'https://static.pexels.com/photos/132419/pexels-photo-132419.jpeg', '#1b6458', 'Green'),
-        new ImageBox(7, 'https://static.pexels.com/photos/216657/pexels-photo-216657.jpeg', '#1b6458', 'Green'),
-        new ImageBox(8, 'https://static.pexels.com/photos/133184/pexels-photo-133184.jpeg', '#ef7c7c', 'Red'),
-        new ImageBox(9, 'https://static.pexels.com/photos/132419/pexels-photo-132419.jpeg', '#3939d3', 'Blue'),
+        new ImageBox(4, 'https://static.pexels.com/photos/24299/pexels-photo-24299.jpg', '#ef7c7c', 'Icy'),
+        new ImageBox(5, 'https://static.pexels.com/photos/134493/pexels-photo-134493.jpeg', '#3939d3', 'Black'),
+        new ImageBox(6, 'https://static.pexels.com/photos/355604/pexels-photo-355604.jpeg', '#1b6458', 'Gorgeous'),
+        new ImageBox(7, 'https://static.pexels.com/photos/50594/sea-bay-waterfront-beach-50594.jpeg', '#1b6458', 'Perfect'),
+        new ImageBox(8, 'https://static.pexels.com/photos/46528/bird-songbird-cute-close-46528.jpeg', '#ef7c7c', 'Small'),
+        new ImageBox(9, 'https://static.pexels.com/photos/26832/pexels-photo-26832.jpg', '#3939d3', 'Violet'),
     ];
 
     isShown = this.boxes.map(() => true); // [true, true, true]
@@ -78,5 +79,19 @@ export class AppComponent {
 
       }
   }
+  // calendar
+inputInfo: '';
+availability: '';
+option: '';
+inputName: '';
+inputDate: '';
+
+getInputInfo(inputName, availability, option, inputDate) {
+        this.inputName = inputName;
+        this.availability = availability;
+        this.option = option;
+        this.inputDate= inputDate;
+       this.inputInfo = this.inputName + this.availability + this.option + this.inputDate;
+}
 
 }
