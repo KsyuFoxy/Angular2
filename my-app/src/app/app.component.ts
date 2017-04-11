@@ -79,19 +79,22 @@ export class AppComponent {
 
       }
   }
-  // calendar
 
-formData = {
-    inputDate: '',
-    inputInfo: '',
-    availability: '',
-    option: '',
-    inputName: ''
-};
+  // form
+    formData = {
+        inputDate: '',
+        inputInfo: '',
+        availability: '',
+        option: '',
+        inputName: ''
+    };
 
-getInputInfo() {
-    this.formData.inputInfo = this.formData.inputName + this.formData.availability + this.formData.option + this.formData.inputDate;
-    console.log(this.formData);
-}
-
+    getInputInfo() {
+        if(this.formData.availability == 'Yes') {
+            this.formData.inputInfo = this.formData.inputName + ', ' + this.formData.availability;
+        } else {
+            this.formData.inputInfo = this.formData.inputName + ', ' + this.formData.availability + ', ' + this.formData.option + ', ' + this.formData.inputDate;
+            console.log(this.formData);
+        }
+    }
 }

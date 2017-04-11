@@ -103,7 +103,7 @@ img {
 .modal-content {
     width: 380px;
     padding: 10px;
-    background-color: green;
+    background-color: #057268;
 }
 .photo-wrapper {
     width: 300px;
@@ -127,4 +127,22 @@ img {
 .calendar {
     color: #cbdbe3;
     margin-left: 15px;
+}
+.form-results {
+    color: white;
+}
+/*valid and required show green*/
+.ng-valid[required] {
+  border: 5px solid blue;
+}
+
+/*invalid*/
+.ng-invalid {
+  border: 5px solid red;
+}
+
+.error{
+  padding: 12px;
+  background-color: rgba(255, 0, 0, 0.2);
+  color: red;
 }
