@@ -39,20 +39,23 @@
 <div class="text-container">
     <h1>{{title}}</h1>
     <p>My favorite color is: {{myColor}}</p>
+
+    <h2>Tour of Colors ({{mode}})</h2>
     <p>Colors:</p>
     <ul>
-        <li *ngFor="let color of colors">
-                {{color}}
-        </li>
+        <li *ngFor="let color of colors">{{color}}</li>
     </ul>
-    <input #newColor
+    <!-- <input #newColor
         (keyup.enter)="addColor(newColor.value)"
-        (blur)="addColor(newColor.value); newColor.value='' ">
-    <button (click)='addColor(newColor.value)' class='add-color'>Add</button>
+        (blur)="addColor(newColor.value); newColor.value='' "> -->
+    <label>New color name: <input #newColor /></label>
 
+    <button (click)="addColor(newColor.value); newColor.value=''" class='add-color'>Add</button>
+    <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
 
     <p *ngIf='colors.length > 3'>There are many colors!</p>
 </div>
+
 
 <!-- create text on input     -->
 <div class="text-container">

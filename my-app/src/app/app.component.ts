@@ -1,11 +1,11 @@
-import { Component, Input, HostBinding, NgModule } from '@angular/core';
+import { Component, Input, HostBinding, NgModule, OnInit  } from '@angular/core';
 import { ImageBox } from './imagebox';
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+
 })
 export class AppComponent {
     title1 = 'Angular2';
