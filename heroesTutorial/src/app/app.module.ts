@@ -3,10 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroesComponent } from './heroes.component';
-import { HeroService } from './hero.service';
-import { DashboardComponent } from './dashboard.component';
+import { FrameDetailComponent } from './frame-detail.component';
+import { FramesComponent } from './frames.component';
+import { FrameService } from './frame.service';
+import { TaskboardComponent } from './taskboard.component';
+import { TaskService } from './task.service';
+import { TaskDetailComponent } from './task-detail.component';
+
 
 import { AppComponent }  from './app.component';
 
@@ -15,20 +18,22 @@ import { AppComponent }  from './app.component';
                 FormsModule,
                 RouterModule.forRoot([
                       {
-                        path: 'heroes',
-                        component: HeroesComponent
+                        path: 'frames',
+                        component: FramesComponent
                     },
                     {
-                        path: 'dashboard',
-                        component: DashboardComponent,
+                        path: 'taskboard',
+                        component: TaskboardComponent
                     }
                     ])
                  ],
   declarations: [ AppComponent,
-                HeroDetailComponent,
-                HeroesComponent,
-                DashboardComponent ],
-  providers:    [ HeroService],
+                FrameDetailComponent,
+                FramesComponent,
+                TaskDetailComponent,
+                TaskboardComponent ],
+  providers:    [ FrameService,
+                TaskService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

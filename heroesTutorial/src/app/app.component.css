@@ -1,7 +1,31 @@
+@font-face {
+  font-family: 'TitilliumLight';
+  src: url('./img_fonts/Titillium-Light.otf') format('otf'),
+       url('./img_fonts/titillium-light-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'TitilliumSemibold';
+  src: url('./img_fonts/Titillium-Semibold.otf'),
+       url('./img_fonts/titillium-semibold-webfont.woff');
+}
+.section-container {
+    width: 800px;
+    margin: 40px auto;
+}
+h1 {
+    font-family: TitilliumSemibold;
+    color: #e91e63;
+    text-align: center;
+    font-size: 30px;
+}
+nav {
+    text-align: center;
+}
 nav a {
+    font-family: TitilliumLight;
    padding: 5px 10px;
    text-decoration: none;
-   margin-top: 10px;
+   margin: 10px;
    display: inline-block;
    background-color: #eee;
    border-radius: 4px;
