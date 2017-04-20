@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FramesComponent } from './frames.component';
-import { TaskboardComponent } from './taskboard.component';
-
+import { PersonsComponent } from './persons.component';
+import { TasksComponent } from './tasks.component';
 
 @Component({
     selector: 'app-root',
@@ -9,8 +8,8 @@ import { TaskboardComponent } from './taskboard.component';
     <section class='section-container'>
           <h1>{{title}}</h1>
           <nav>
-              <a routerLink="/frames">VA Team</a>
-              <a routerLink="/taskboard">Task board</a>
+              <a routerLink="/persons">VA Team</a>
+              <a routerLink="/tasks">Task board</a>
           </nav>
           <router-outlet></router-outlet>
     </section>

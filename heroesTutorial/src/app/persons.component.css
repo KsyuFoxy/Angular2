@@ -2,14 +2,14 @@
   background-color: #CFD8DC !important;
   color: white;
 }
-.frames {
+.persons {
     padding: 0;
     width: 100%;
     cursor: pointer;
     text-align: center;
     margin: 2em auto;
 }
-.frames section {
+.persons section {
     width: 200px;
     height: 200px;
     display: inline-block;
@@ -19,20 +19,20 @@
     padding: .3em 0;
     border-radius: 4px;
 }
-.frames section.selected:hover {
+.persons section.selected:hover {
   background-color: #BBD8DC !important;
   color: white;
 }
-.frames section:hover {
+.persons section:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
-.frames .text {
+.persons .text {
   position: relative;
   top: -3px;
 }
-.frames .badge {
+.persons .badge {
     font-family: TitilliumSemibold;
     position: relative;
     top: -8.8em;
@@ -44,7 +44,7 @@
     width: 2em;
     border-radius: 0.2em;
 }
-.frames .name {
+.persons .name {
     position: absolute;
     font-family: TitilliumLight;
     font-size: 19px;
@@ -52,7 +52,7 @@
     width: 9.5em;
     overflow: hidden;
 }
-.frames .image {
+.persons .image {
     width: 11em;
     margin: 0 auto;
     height: 8.4em;
@@ -60,7 +60,7 @@
     top: 1.5em;
     overflow: hidden;
 }
-.frames img {
+.persons img {
     height: 100%;
 
 }

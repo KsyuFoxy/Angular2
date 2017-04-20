@@ -2,12 +2,14 @@ import {Component, Input} from '@angular/core';
 import { Task } from './task';
 
 @Component ({
-    selector: 'my-task-details',
+    selector: 'my-new-task',
     template: `
-     <div *ngIf="task" [class.saved]="isSaved" class='task-detail'>
-            <h2>Task details</h2>
+
+        <div *ngIf='newTask' class='task-detail'>
+            <h2>New task details</h2>
             <div>
-                <label>ID: </label>{{task.id}}
+                <label>ID: </label>
+                <input [(ngModel)]="task.id" placeholder="task.id">
             </div>
             <div>
                 <label>Name: </label>
@@ -17,27 +19,15 @@ import { Task } from './task';
                 <label>Text: </label>
                 <textarea [(ngModel)]="task.text" placeholder="text" rows='4'></textarea>
             </div>
-            <button (click)="onSave()">Save</button>
-     </div>
-
+            <button *ngIf='newTaskFilled' (click)="onSave()">Save</button>
+        </div>
     `,
     styleUrls: [ './tasks.component.css' ]
 })
 
-export class TaskDetailComponent {
+export class NewTaskComponent {
     @Input()
     task: Task;
-    isSaved: boolean = false;
-
-constructor() {
-    console.log(this.isSaved)
-}
-
-    onSave(): void {
-        this.isSaved = true;
-        console.log(this.task);
-        console.log(this.isSaved);
-  }
-
+    newTaskFilled: Task;
 
 }

@@ -1,6 +1,6 @@
-import {Frame} from './frame';
+import {Person} from './person';
 
-export const FRAMES: Frame[] = [
+export const PERSONS: Person[] = [
     { id: 'JD', name: 'John Doe', image: 'https://static.pexels.com/photos/216657/pexels-photo-216657.jpeg' },
     { id: 'BF', name: 'Beata Fein', image: 'https://static.pexels.com/photos/133184/pexels-photo-133184.jpeg' },
     { id: 'ML', name: 'Mark Lanvin', image: 'https://static.pexels.com/photos/216657/pexels-photo-216657.jpeg' },

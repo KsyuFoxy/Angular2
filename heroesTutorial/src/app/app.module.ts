@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 
-import { FrameDetailComponent } from './frame-detail.component';
-import { FramesComponent } from './frames.component';
-import { FrameService } from './frame.service';
-import { TaskboardComponent } from './taskboard.component';
+import { PersonDetailComponent } from './person-detail.component';
+import { PersonsComponent } from './persons.component';
+import { PersonService } from './person.service';
+import { TasksComponent } from './tasks.component';
 import { TaskService } from './task.service';
 import { TaskDetailComponent } from './task-detail.component';
+import { NewTaskComponent } from './new-task.component';
 
 
 import { AppComponent }  from './app.component';
@@ -18,21 +19,22 @@ import { AppComponent }  from './app.component';
                 FormsModule,
                 RouterModule.forRoot([
                       {
-                        path: 'frames',
-                        component: FramesComponent
+                        path: 'persons',
+                        component: PersonsComponent
                     },
                     {
-                        path: 'taskboard',
-                        component: TaskboardComponent
+                        path: 'tasks',
+                        component: TasksComponent
                     }
                     ])
                  ],
   declarations: [ AppComponent,
-                FrameDetailComponent,
-                FramesComponent,
+                PersonDetailComponent,
+                PersonsComponent,
                 TaskDetailComponent,
-                TaskboardComponent ],
-  providers:    [ FrameService,
+                NewTaskComponent,
+                TasksComponent ],
+  providers:    [ PersonService,
                 TaskService],
   bootstrap:    [ AppComponent ]
 })

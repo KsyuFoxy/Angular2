@@ -1,0 +1,79 @@
+h2, h3 {
+    font-family: TitilliumSemibold;
+    color: #6c6b6b;
+    text-align: left;
+    font-size: 25px;
+}
+h3 {
+    font-size: 20px;
+}
+li, input, textarea, label {
+    font-family: TitilliumLight;
+}
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.tasks li {
+    display: block;
+    font-size: 19px;
+    margin: 10px;
+    background-color: #EEE;
+    width: 15em;
+}
+.tasks .task-id {
+    background-color: #ef84a8;
+    padding: 0 10px;
+    border-radius: 0.2em;
+    margin-right: 10px;
+}
+.tasks {
+    cursor: pointer;
+    border-radius: 0.2em;
+}
+.tasks li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.tasks li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.task-detail label{
+    padding-left:5em;
+    width:3em;
+    display:inline-block;
+}
+.task-detail input, .task-detail textarea {
+    width: 20em;
+    background-color: #eeeeee;
+    margin: 0.5em 0;
+    border: 1px solid #cfd8dc;
+    padding: 0.5em;
+}
+.placeholder-wrapper label, .placeholder-wrapper textarea {
+    display:inline-block;
+    vertical-align:middle;
+}
+.task-detail button {
+    width: 8em;
+    padding: 0.5em;
+    font-family: TitilliumSemibold;
+    background-color: #ef84a8;
+    color: white;
+    margin-left: 16em;
+    margin-top: 1em;
+}
+.saved {
+  display: none;
+}
+.add-task {
+   width: 8em;
+   padding: 0.5em;
+   font-family: TitilliumSemibold;
+   background-color: #eeeeee;
+   color: #6c6b6b;
+   margin-left: 6em;
+   margin-top: 1em;
+}
