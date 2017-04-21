@@ -7,7 +7,7 @@ import { PersonDetailComponent } from './person-detail.component';
 import { PersonsComponent } from './persons.component';
 import { PersonService } from './person.service';
 import { TasksComponent } from './tasks.component';
-import { TaskService } from './task.service';
+import { TaskService, NewTaskService } from './task.service';
 import { TaskDetailComponent } from './task-detail.component';
 import { NewTaskComponent } from './new-task.component';
 
@@ -35,7 +35,9 @@ import { AppComponent }  from './app.component';
                 NewTaskComponent,
                 TasksComponent ],
   providers:    [ PersonService,
-                TaskService],
+                TaskService,
+                NewTaskService,
+                ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

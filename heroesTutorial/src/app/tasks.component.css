@@ -68,6 +68,7 @@ li, input, textarea, label {
 .saved {
   display: none;
 }
+
 .add-task {
    width: 8em;
    padding: 0.5em;
@@ -76,4 +77,10 @@ li, input, textarea, label {
    color: #6c6b6b;
    margin-left: 6em;
    margin-top: 1em;
+}
+button {
+    cursor: pointer;
+}
+button:disabled {
+    color: #c8c7c7;
 }

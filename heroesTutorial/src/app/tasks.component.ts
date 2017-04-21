@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 
-import { Task } from './task';
+import { Task, NewTask } from './task';
 import { TaskDetailComponent } from './task-detail.component';
-import { TaskService } from './task.service';
+import { TaskService, NewTaskService } from './task.service';
 import { NewTaskComponent } from './new-task.component';
 
 @Component({
@@ -20,37 +20,48 @@ import { NewTaskComponent } from './new-task.component';
         <my-task-details [task]='selectedTask'></my-task-details>
 
         <button class='add-task'
-                (click)="showForm(newTask)">
+                (click)="showForm(newTask)"
+                [disabled]="addNewTask">
                 Add a new task
-                <my-new-task [task]='newTask'></my-new-task>
         </button>
+        <my-new-task [newTask]='addNewTask'></my-new-task>
 
   `,
   styleUrls: [ './tasks.component.css' ]
 })
 export class TasksComponent implements OnInit {
-    constructor(private _taskService: TaskService) {}
+    constructor(
+        private _taskService: TaskService,
+        private newTaskService: NewTaskService,
+        // private _newTaskService: NewTaskService
+    ) {}
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.getTasks();
+        this.getNewTask();
     }
     getTasks() {
         this._taskService.getTasks().then(tasks => this.tasks = tasks);
     }
+
+    getNewTask(): void {
+        this.newTask = this.newTaskService.getNewTask();
+    }
+
     selectedTask: Task;
+    addNewTask: NewTask;
     tasks: Task[];
-    newTask: Task;
+    newTask: NewTask[];
 
     onSelect(task: Task): void {
       this.selectedTask = task;
-    }
-    showForm(newTask: Task): void {
-        this.newTask = newTask;
+      console.log('selectedTask', this.selectedTask)
     }
 
-    // addTask(newTask: Task) {
-        // if(newTask) {
-            // this.tasks.push(newTask);
-        // }
-    // }
+    showForm(newTask: NewTask): void {
+        this.addNewTask = newTask;
+        console.log('newTask', this.addNewTask)
+    }
+
+
  }
