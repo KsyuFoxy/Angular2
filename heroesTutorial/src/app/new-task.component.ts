@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { Task, NewTask } from './task';
 import { TaskService } from './task.service';
 import { TASKS } from './mock-tasks';
@@ -7,7 +7,7 @@ import { TasksComponent } from './tasks.component';
 @Component ({
     selector: 'my-new-task',
     template: `
-        <div *ngIf='newTask && !saved' class='task-detail'>
+        <div *ngIf='newTask && isFormDisplayed.display' class='task-detail'>
                 <h2>New task details</h2>
                 <div>
                     <label>ID: </label>
@@ -28,26 +28,26 @@ import { TasksComponent } from './tasks.component';
 })
 
 export class NewTaskComponent {
-    @Input()
-    newTask: NewTask;
+    @Input() newTask: NewTask;
+    @Output() newTaskChange = new EventEmitter();
+    @Input() isFormDisplayed;
+    // @Output() isFormDisplayedChange = new EventEmitter();
     tasks: Task[] = TASKS;
-    public saved = false;
 
     constructor() {
 
     }
     addTask(newTask: NewTask): void {
-        // if(newTask) {
-        this.tasks.push(newTask);
-        // }
-        console.log('save tasks', this.tasks)
-        console.log('save new-task', this.newTask)
-        this.saved = true;
+        // this will change child isFormDisplayed
+        this.isFormDisplayed.display = false;
+        // this will change parent isFormDisplayed
+        // this.isFormDisplayedChange.emit(false);
+        var addTask = {
+            id: newTask.id,
+            name: newTask.name,
+            text: newTask.text
+        };
+        this.tasks.push(addTask);
+        this.newTaskChange.emit({id: 0, name: '', text: ''});
     }
-    //
-    // // addTask(newTask: Task) {
-    //     // if(newTask) {
-    //         // this.tasks.push(newTask);
-    //     // }
-    // // }
 }

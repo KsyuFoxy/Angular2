@@ -21,10 +21,10 @@ import { NewTaskComponent } from './new-task.component';
 
         <button class='add-task'
                 (click)="showForm(newTask)"
-                [disabled]="addNewTask">
+                [disabled]="isFormDisplayed.display">
                 Add a new task
         </button>
-        <my-new-task [newTask]='addNewTask'></my-new-task>
+        <my-new-task [(isFormDisplayed)]='isFormDisplayed' [(newTask)]='emptyTask'></my-new-task>
 
   `,
   styleUrls: [ './tasks.component.css' ]
@@ -52,6 +52,8 @@ export class TasksComponent implements OnInit {
     addNewTask: NewTask;
     tasks: Task[];
     newTask: NewTask[];
+    emptyTask = {id: 0, name: '', text: ''};
+    isFormDisplayed = {display: false};
 
     onSelect(task: Task): void {
       this.selectedTask = task;
@@ -59,8 +61,8 @@ export class TasksComponent implements OnInit {
     }
 
     showForm(newTask: NewTask): void {
+        this.isFormDisplayed.display = !this.isFormDisplayed.display;
         this.addNewTask = newTask;
-        console.log('newTask', this.addNewTask)
     }
 
 
