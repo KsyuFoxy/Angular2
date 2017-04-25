@@ -1,6 +1,10 @@
 .selected {
-  background-color: #CFD8DC !important;
+  background-color: #CFD8DC;
   color: white;
+}
+.available {
+    background-color: #cae6cb;
+    color: violet;
 }
 .persons {
     padding: 0;
@@ -20,7 +24,7 @@
     border-radius: 4px;
 }
 .persons section.selected:hover {
-  background-color: #BBD8DC !important;
+  background-color: #BBD8DC;
   color: white;
 }
 .persons section:hover {

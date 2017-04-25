@@ -12,7 +12,7 @@ import { PersonService } from './person.service';
     <div class="persons">
         <section *ngFor="let person of persons"
             (click)="onSelect(person)"
-            [class.selected]="person === selectedPerson" >
+            [class.selected]="person === selectedPerson">
             <div class='image'>
                 <img src='{{person.image}}'/>
             </div>
