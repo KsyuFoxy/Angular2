@@ -17,11 +17,12 @@ import { NewTaskComponent } from './new-task.component';
             {{task.name}}
             </li>
         </ul>
-        <my-task-details [task]='selectedTask'></my-task-details>
+        <my-task-details [(task)]='selectedTask' [(isSaved)]='isSaved'></my-task-details>
 
         <button class='add-task'
+                *ngIf="!selectedTask || !isSaved"
                 (click)="showForm(newTask)"
-                [disabled]="isFormDisplayed.display">
+                [disabled]="isFormDisplayed">
                 Add a new task
         </button>
         <my-new-task [(isFormDisplayed)]='isFormDisplayed' [(newTask)]='emptyTask'></my-new-task>
@@ -49,19 +50,21 @@ export class TasksComponent implements OnInit {
     }
 
     selectedTask: Task;
-    addNewTask: NewTask;
     tasks: Task[];
+    isSaved = false;
+
+    addNewTask: NewTask;
     newTask: NewTask[];
     emptyTask = {id: 0, name: '', text: ''};
-    isFormDisplayed = {display: false};
+    isFormDisplayed = false;
 
     onSelect(task: Task): void {
+      this.isSaved = !this.isSaved;
       this.selectedTask = task;
-      console.log('selectedTask', this.selectedTask)
     }
 
     showForm(newTask: NewTask): void {
-        this.isFormDisplayed.display = !this.isFormDisplayed.display;
+        this.isFormDisplayed = !this.isFormDisplayed;
         this.addNewTask = newTask;
     }
 

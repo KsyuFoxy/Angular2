@@ -7,7 +7,7 @@ import { TasksComponent } from './tasks.component';
 @Component ({
     selector: 'my-new-task',
     template: `
-        <div *ngIf='newTask && isFormDisplayed.display' class='task-detail'>
+        <div *ngIf='newTask && isFormDisplayed' class='task-detail'>
                 <h2>New task details</h2>
                 <div>
                     <label>ID: </label>
@@ -22,7 +22,7 @@ import { TasksComponent } from './tasks.component';
                     <textarea [(ngModel)]="newTask.text" rows='4'></textarea>
                 </div>
                 <button (click)="addTask(newTask)">Save</button>
-                </div>
+        </div>
     `,
     styleUrls: [ './tasks.component.css' ]
 })
@@ -30,18 +30,17 @@ import { TasksComponent } from './tasks.component';
 export class NewTaskComponent {
     @Input() newTask: NewTask;
     @Output() newTaskChange = new EventEmitter();
-    @Input() isFormDisplayed;
-    // @Output() isFormDisplayedChange = new EventEmitter();
+    @Input() isFormDisplayed = false;
+    @Output() isFormDisplayedChange = new EventEmitter();
+
     tasks: Task[] = TASKS;
 
-    constructor() {
 
-    }
     addTask(newTask: NewTask): void {
-        // this will change child isFormDisplayed
-        this.isFormDisplayed.display = false;
-        // this will change parent isFormDisplayed
-        // this.isFormDisplayedChange.emit(false);
+        // change child
+        this.isFormDisplayed = false;
+        // change parent
+        this.isFormDisplayedChange.emit(false);
         var addTask = {
             id: newTask.id,
             name: newTask.name,

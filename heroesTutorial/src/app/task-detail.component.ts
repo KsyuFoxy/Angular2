@@ -1,10 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { Task } from './task';
 
 @Component ({
     selector: 'my-task-details',
     template: `
-     <div *ngIf="task" [class.saved]="isSaved" class='task-detail'>
+     <div *ngIf="task && isSaved" class='task-detail'>
             <h2>Task details</h2>
             <div>
                 <label>ID: </label>{{task.id}}
@@ -17,7 +17,7 @@ import { Task } from './task';
                 <label>Text: </label>
                 <textarea [(ngModel)]="task.text" placeholder="text" rows='4'></textarea>
             </div>
-            <button (click)="onSave()">Save</button>
+            <button (click)="onSave(changeTast)">Save</button>
      </div>
 
     `,
@@ -25,19 +25,15 @@ import { Task } from './task';
 })
 
 export class TaskDetailComponent {
-    @Input()
-    task: Task;
-    isSaved: boolean = false;
+    @Input() task: Task;
+    @Output() taskChange = new EventEmitter();
+    @Input() isSaved = false;
+    @Output() isSavedChange = new EventEmitter();
 
-constructor() {
-    console.log(this.isSaved)
-}
-
-    onSave(): void {
-        this.isSaved = true;
-        console.log(this.task);
-        console.log(this.isSaved);
-  }
-
+    onSave(changeTast: Task): void{
+        this.isSaved = false;
+        this.isSavedChange.emit(false);
+        console.log('task', this.task);
+    }
 
 }
