@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 import { Person } from './person';
@@ -12,7 +12,8 @@ import { PersonService } from './person.service';
     <div class="persons">
         <section *ngFor="let person of persons"
             (click)="onSelect(person)"
-            [class.selected]="person === selectedPerson">
+            [ngClass]="{'selected' : person === selectedPerson, 'available' : notAvailable == false }"
+            (change)='getAvailable(selectedPerson)'>
             <div class='image'>
                 <img src='{{person.image}}'/>
             </div>
@@ -20,7 +21,7 @@ import { PersonService } from './person.service';
             <p class='name'>{{person.name}}</p>
         </section>
     </div>
-    <my-person-details [person]='selectedPerson'></my-person-details>
+    <my-person-details [person]='selectedPerson' [(notAvailable)]='notAvailable'></my-person-details>
   `,
   styleUrls: [ './persons.component.css' ]
 })
@@ -28,8 +29,9 @@ import { PersonService } from './person.service';
 export class PersonsComponent implements OnInit {
     selectedPerson: Person;
     persons: Person[];
+    notAvailable: boolean;
 
-    constructor(private _personService: PersonService) {}
+    constructor(private _personService: PersonService) { }
 
     ngOnInit () {
         this.getPersons();
@@ -40,6 +42,15 @@ export class PersonsComponent implements OnInit {
 
     onSelect(person: Person): void {
       this.selectedPerson = person;
+    }
+    getAvailable(person: Person): void {
+        if(this.notAvailable) {
+            this.notAvailable = !this.notAvailable;
+        }
+        else if (!this.notAvailable) {
+            this.notAvailable = false;
+        }
+
     }
 
  }

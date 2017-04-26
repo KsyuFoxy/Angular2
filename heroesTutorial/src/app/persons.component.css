@@ -2,13 +2,9 @@
   background-color: #CFD8DC;
   color: white;
 }
-.available {
-    background-color: #cae6cb;
-    color: violet;
-}
-.notavailable {
-    background-color: #cae6cb;
-    color: yellow;
+.persons .available  {
+    background-color: #DDD; /*grey*/
+    color: #e91e63; /*red*/
 }
 .persons {
     padding: 0;
@@ -22,7 +18,7 @@
     height: 200px;
     display: inline-block;
     cursor: pointer;
-    background-color: #EEE;
+    background-color: #cae2ca; /*green*/
     margin: .5em;
     padding: .3em 0;
     border-radius: 4px;
@@ -33,7 +29,7 @@
 }
 .persons section:hover {
   color: #607D8B;
-  background-color: #DDD;
+  background-color: #9eb99e;
   left: .1em;
 }
 .persons .text {
@@ -71,14 +67,3 @@
 .persons img {
     height: 100%;
 }
-.red-style {
-    background-color: aliceblue;
-}
-:host(.yellow-style) {
-        background-color: yellow;
-        color: yellow;
-      }
-:host(.red-style) {
-        background-color: red;
-        color: red;
-     }

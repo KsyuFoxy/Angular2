@@ -1,0 +1,24 @@
+.person-detail {
+    background-color: #EEE;
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: TitilliumSemibold;
+}
+label {
+    padding-right: 10px;
+    font-size: 14px;
+    font-family: TitilliumLight;
+}
+.person-detail div {
+    font-size: 16px;
+    margin: 5px 0;
+}
+:host(.green-style) .person-detail {
+        background-color: #cae2ca; /*green*/
+        color: green;
+      }
+:host(.grey-style) .person-detail {
+        background-color: #eeeeee;
+        color: grey;
+     }
