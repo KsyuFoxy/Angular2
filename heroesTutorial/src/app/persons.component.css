@@ -6,6 +6,10 @@
     background-color: #cae6cb;
     color: violet;
 }
+.notavailable {
+    background-color: #cae6cb;
+    color: yellow;
+}
 .persons {
     padding: 0;
     width: 100%;
@@ -66,5 +70,15 @@
 }
 .persons img {
     height: 100%;
-
 }
+.red-style {
+    background-color: aliceblue;
+}
+:host(.yellow-style) {
+        background-color: yellow;
+        color: yellow;
+      }
+:host(.red-style) {
+        background-color: red;
+        color: red;
+     }

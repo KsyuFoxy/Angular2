@@ -1,19 +1,21 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit, HostBinding} from '@angular/core';
 import { Person } from './person';
 
 @Component ({
     selector: 'my-person-details',
     template: `
-    <div *ngIf="person">
+    <div *ngIf="person" [style]="activeStyle" class="yellow-style">
         <h2>{{person.name}} info</h2>
         <div><label>id: </label>{{person.id}}</div>
         <div><label>name: </label>{{person.name}}</div>
         <div>
             <label>availability: </label>
             <input name="availability" type="radio" [(ngModel)]="person.availability" [value]="1"
-                   [checked]="person.availability == 1" />Yes
+                     [checked]="person.availability == 1"
+                    (click)="activeStyle='yellow'" />Yes
             <input name="availability" type="radio" [(ngModel)]="person.availability" [value]="2"
-                   [checked]="person.availability == 2" />No<br/>
+                     [checked]="person.availability == 2"
+                     (click)="activeStyle='red'"/>No<br/>
         </div>
      </div>
     `
@@ -21,24 +23,30 @@ import { Person } from './person';
 
 export class PersonDetailComponent {
     @Input() person: Person;
-    // isAvailable: true;
+// change colors
+     activeStyle : string = 'yellow';
+     @Input() style;
 
-    // @Input() isAvailable = false;
-    // @Output() isAvailableChange = new EventEmitter();
+     @HostBinding('class.yellow-style') yellowStyle:boolean = true;
+     @HostBinding('class.red-style') redStyle:boolean = false;
 
-    // getAvailable(): void {
-    //     this.isAvailable = false;
-    //     this.isAvailableChange.emit(false);
-    // }
+
+       ngOnChanges(changes) {
+           if (changes.person.availability === 1) {
+                this.yellowStyle = true;
+                // let newStyle = changes.style.currentValue;
+                //
+                // if(newStyle === 'yellow') {
+                //     this.yellowStyle = true;
+                //     this.redStyle = false;
+                // } else if(newStyle === 'red') {
+                //     this.yellowStyle = false;
+                //     this.redStyle = true;
+                // } else {
+                //
+                // }
+           }
+           console.log(changes.person)
+      }
+
 }
-
-// <input #available [ngModel]='person.availability'
-//         (click)='person.availability=available.value'
-//         (change)='addOption=false; addCalendar=false'
-//         name='availability' type="radio" value="Yes">
-//         Yes
-// <input #notavailable [ngModel]='person.availability'
-//         (click)='person.availability=notavailable.value'
-//         (change)='addOption=notavailable.checked'
-//         name='availability' type="radio" value="No">
-//         No<br>
