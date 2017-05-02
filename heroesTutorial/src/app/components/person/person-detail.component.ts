@@ -25,27 +25,26 @@ export class PersonDetailComponent {
     @Input() person: Person;
 
 // change colors of Child and Parent
-     activeStyle : string = 'green';
      @Input() style;
 
      @Input() notAvailable = false;
 
-    @Input()  chosenAvailability = true;
-    @Output() chosenAvailabilityChange = new EventEmitter();
+     @Input()  chosenAvailability = true;
+     @Output() chosenAvailabilityChange = new EventEmitter();
 
-     @HostBinding('class.green-style') greenStyle:boolean = true;
+     @HostBinding('class.green-style') greenStyle:boolean = false;
      @HostBinding('class.grey-style') greyStyle:boolean = false;
 
+     ngOnChanges(changes) {
+         if (changes.person && !changes.person.firstChange) {
+             const availability = changes.person.currentValue.availability;
+             this.greenStyle = availability === 1;
+             this.greyStyle = availability  === 2;
+         }
+     }
+
       onRBChange(availability) {
-           if (availability === 1) {
-             this.greenStyle = true;
-             this.greyStyle = false;
-             this.notAvailable = true;
-             } else {
-                 this.greenStyle = false;
-                 this.greyStyle = true;
-                 this.notAvailable = false;
-             }
-         this.chosenAvailability = !this.chosenAvailability ;
+         this.chosenAvailability = !this.chosenAvailability;
+         this.chosenAvailabilityChange.emit(this.chosenAvailability);
         }
 }

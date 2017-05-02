@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 
-import { PersonDetailComponent } from './person-detail.component';
-import { PersonsComponent } from './persons.component';
-import { PersonService } from './person.service';
-import { TasksComponent } from './tasks.component';
-import { TaskService, NewTaskService } from './task.service';
-import { TaskDetailComponent } from './task-detail.component';
-import { NewTaskComponent } from './new-task.component';
+import { PersonDetailComponent } from './components/person/person-detail.component';
+import { PersonsComponent } from './components/person/persons.component';
+import { PersonService } from './components/person/person.service';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskService, NewTaskService } from './components/tasks/task.service';
+import { TaskDetailComponent } from './components/tasks/task-detail.component';
+import { NewTaskComponent } from './components/tasks/new-task.component';
 
 
 import { AppComponent }  from './app.component';

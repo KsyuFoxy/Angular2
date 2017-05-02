@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PersonsComponent } from './persons.component';
-import { TasksComponent } from './tasks.component';
+import { PersonsComponent } from './components/person/persons.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 @Component({
     selector: 'app-root',

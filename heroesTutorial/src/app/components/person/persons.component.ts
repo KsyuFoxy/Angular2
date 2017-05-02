@@ -43,7 +43,7 @@ export class PersonsComponent implements OnInit {
 
     onSelect(person: Person): void {
       this.selectedPerson = person;
-           this.chosenAvailability = !this.chosenAvailability;
+           this.chosenAvailability = true;
     }
     getAvailable(selectedPerson: Person): void {
         if(this.notAvailable) {
