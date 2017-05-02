@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 import { Task, NewTask } from './task';
 import { TaskDetailComponent } from './task-detail.component';
@@ -17,10 +17,10 @@ import { NewTaskComponent } from './new-task.component';
             {{task.name}}
             </li>
         </ul>
-        <my-task-details [(task)]='selectedTask' [(isSaved)]='isSaved'></my-task-details>
+        <my-task-details [(task)]='selectedTask' [(tasks)]='tasks' [(isSaved)]='isSaved' [(isDeleted)]='isDeleted'></my-task-details>
 
         <button class='add-task'
-                *ngIf="!selectedTask || !isSaved"
+                *ngIf="!selectedTask || !isSaved && isDeleted || isSaved && !isDeleted"
                 (click)="showForm(newTask)"
                 [disabled]="isFormDisplayed">
                 Add a new task
@@ -52,6 +52,7 @@ export class TasksComponent implements OnInit {
     selectedTask: Task;
     tasks: Task[];
     isSaved = false;
+    isDeleted = false;
 
     addNewTask: NewTask;
     newTask: NewTask[];
@@ -59,7 +60,8 @@ export class TasksComponent implements OnInit {
     isFormDisplayed = false;
 
     onSelect(task: Task): void {
-      this.isSaved = !this.isSaved;
+      this.isSaved = true;
+      this.isDeleted = true;
       this.selectedTask = task;
     }
 
@@ -67,6 +69,5 @@ export class TasksComponent implements OnInit {
         this.isFormDisplayed = !this.isFormDisplayed;
         this.addNewTask = newTask;
     }
-
 
  }

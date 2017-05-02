@@ -80,3 +80,7 @@ button {
 button:disabled {
     color: #c8c7c7;
 }
+.task-detail .delete-button {
+    background-color: white;
+    color: #ef84a8;
+}

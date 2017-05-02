@@ -4,7 +4,7 @@ import { Person } from './person';
 @Component ({
     selector: 'my-person-details',
     template: `
-    <div *ngIf="person" (change)='notAvailable' [style]="activeStyle" class="person-detail">
+    <div *ngIf="person && chosenAvailability" (change)='notAvailable' [style]="activeStyle" class="person-detail">
         <h2>{{person.name}}</h2>
         <div><label>id: </label>{{person.id}}</div>
         <div>
@@ -29,22 +29,23 @@ export class PersonDetailComponent {
      @Input() style;
 
      @Input() notAvailable = false;
-     @Output() notAvailableChange = new EventEmitter();
+
+    @Input()  chosenAvailability = true;
+    @Output() chosenAvailabilityChange = new EventEmitter();
 
      @HostBinding('class.green-style') greenStyle:boolean = true;
      @HostBinding('class.grey-style') greyStyle:boolean = false;
 
-       onRBChange(availability) {
+      onRBChange(availability) {
            if (availability === 1) {
              this.greenStyle = true;
              this.greyStyle = false;
              this.notAvailable = true;
-             this.notAvailableChange.emit(true);
              } else {
                  this.greenStyle = false;
                  this.greyStyle = true;
                  this.notAvailable = false;
-                 this.notAvailableChange.emit(false);
              }
+         this.chosenAvailability = !this.chosenAvailability ;
         }
 }
