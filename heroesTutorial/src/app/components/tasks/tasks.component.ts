@@ -4,11 +4,14 @@ import { Task, NewTask } from './task';
 import { TaskDetailComponent } from './task-detail.component';
 import { TaskService, NewTaskService } from './task.service';
 import { NewTaskComponent } from './new-task.component';
+import { SearchComponent } from './search.component';
 
 @Component({
   selector: 'my-tasks',
   template: `
         <h2>All tasks:</h2>
+        <search [(searchInput)]='searchInput' [(tasks)]='tasks'></search>
+
         <ul class='tasks'>
             <li *ngFor='let task of tasks'
             (click)='onSelect(task)'
@@ -58,6 +61,8 @@ export class TasksComponent implements OnInit {
     newTask: NewTask[];
     emptyTask = {id: 0, name: '', text: ''};
     isFormDisplayed = false;
+
+    searchInput: string;
 
     onSelect(task: Task): void {
       this.isSaved = true;

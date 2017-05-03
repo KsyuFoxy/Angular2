@@ -10,6 +10,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskService, NewTaskService } from './components/tasks/task.service';
 import { TaskDetailComponent } from './components/tasks/task-detail.component';
 import { NewTaskComponent } from './components/tasks/new-task.component';
+import { SearchComponent } from './components/tasks/search.component';
 
 
 import { AppComponent }  from './app.component';
@@ -33,7 +34,8 @@ import { AppComponent }  from './app.component';
                 PersonsComponent,
                 TaskDetailComponent,
                 NewTaskComponent,
-                TasksComponent ],
+                TasksComponent,
+                SearchComponent],
   providers:    [ PersonService,
                 TaskService,
                 NewTaskService,

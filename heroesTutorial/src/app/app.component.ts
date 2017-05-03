@@ -8,7 +8,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
     <section class='section-container'>
           <h1>{{title}}</h1>
           <nav>
-              <a routerLink="/persons">VA Team</a>
+              <a routerLink="/persons">VoltAge Team</a>
               <a routerLink="/tasks">Task board</a>
           </nav>
           <router-outlet></router-outlet>
@@ -18,5 +18,5 @@ import { TasksComponent } from './components/tasks/tasks.component';
 })
 
 export class AppComponent {
-    title = 'VA Team';
+    title = 'VoltAge Team';
 }

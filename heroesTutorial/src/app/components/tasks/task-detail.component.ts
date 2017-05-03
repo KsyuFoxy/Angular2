@@ -1,6 +1,5 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { Task } from './task';
-// import { TASKS } from './mock-tasks';
 
 @Component ({
     selector: 'my-task-details',
