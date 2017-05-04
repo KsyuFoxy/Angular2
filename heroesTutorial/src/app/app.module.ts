@@ -11,6 +11,7 @@ import { TaskService, NewTaskService } from './components/tasks/task.service';
 import { TaskDetailComponent } from './components/tasks/task-detail.component';
 import { NewTaskComponent } from './components/tasks/new-task.component';
 import { SearchComponent } from './components/tasks/search.component';
+import { PipesComponent, FilterPipe } from './components/tasks/pipes.component';
 
 
 import { AppComponent }  from './app.component';
@@ -35,11 +36,11 @@ import { AppComponent }  from './app.component';
                 TaskDetailComponent,
                 NewTaskComponent,
                 TasksComponent,
-                SearchComponent],
+                SearchComponent,
+                PipesComponent, FilterPipe],
   providers:    [ PersonService,
                 TaskService,
-                NewTaskService,
-                ],
+                NewTaskService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

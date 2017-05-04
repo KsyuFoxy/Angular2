@@ -6,13 +6,20 @@ import { TaskService, NewTaskService } from './task.service';
 import { NewTaskComponent } from './new-task.component';
 import { SearchComponent } from './search.component';
 
+import { PipesComponent, FilterPipe } from './pipes.component';
+
+// import { TaskSearchComponent } from './task-search.component';
+//put in HTML <task-search></task-search>
+
 @Component({
   selector: 'my-tasks',
   template: `
         <h2>All tasks:</h2>
-        <search [(searchInput)]='searchInput' [(tasks)]='tasks'></search>
+        <search [(searchInput)]='searchInput' [(tasks)]='tasks' [(showNotFilteredTasks)]='showNotFilteredTasks'></search>
 
-        <ul class='tasks'>
+        <pipes></pipes>
+
+        <ul class='tasks' *ngIf='showNotFilteredTasks'>
             <li *ngFor='let task of tasks'
             (click)='onSelect(task)'
             [class.selected]='task === selectedTask'>
@@ -63,6 +70,7 @@ export class TasksComponent implements OnInit {
     isFormDisplayed = false;
 
     searchInput: string;
+    showNotFilteredTasks = true;
 
     onSelect(task: Task): void {
       this.isSaved = true;

@@ -1,6 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { TASKS } from './mock-tasks';
-import { TaskService } from './task.service';
 
 import { Task } from './task';
 
@@ -8,59 +6,44 @@ import { Task } from './task';
     selector: 'search',
     template: `
         <div class='search-container'>
-            <input [(ngModel)]='searchInput' name='search'>
+            <input [(ngModel)]='searchInput' name='search'/>
+            <button (click)='doSearch()'>Search</button>
+            <button (click)='clearSearch()' class='clear-search'>X</button>
             <ul class='tasks'>
-                <li *ngFor="let row of visibleRows">
+                <li *ngFor="let row of filteredRows; showNotFilteredTasks">
                 <span class='task-id'>{{row.id}}</span>
                 {{row.name}}
                 </li>
             </ul>
-            <button (click)='doSearch()' >Search</button>
-        <div>
+        </div>
     `,
     styleUrls: ['./search.component.css', './tasks.component.css']
 })
 
 export class SearchComponent {
-    @Input() searchInput: string;
+    @Input() searchInput: string ='';
     @Output() searchInputChange = new EventEmitter();
     @Input() tasks: Task[];
     @Input() task: Task;
-    // taskNames: string;
-    // otherTasks: number;
-    // inputName: string;
+
     name: string;
     filteredTasks: Task[];
+    @Input() showNotFilteredTasks = true;
+    @Output() showNotFilteredTasksChange = new EventEmitter();
     row: Task;
-    visibleRows: Task[];
+    filteredRows: Task[];
 
     doSearch() {
       this.filteredTasks = this.tasks.filter(
-              task => task.name === this.searchInput);
-              console.log(this.filteredTasks);
-        this.visibleRows =  this.filteredTasks;
+              task => task.name.toLowerCase() === this.searchInput.toLowerCase());
+        this.filteredRows =  this.filteredTasks;
+        this.showNotFilteredTasks = false;
+        this.showNotFilteredTasksChange.emit(false);
     }
-
-    // doSearch(newInput: string): void {
-    //     this.searchInputChange.emit(newInput);
-    //     const taskNames = this.tasks.map(a => a.name);
-    //
-    //     for (var i = 0; i < this.tasks.length; i++) {
-    //         if (this.searchInput == ' ') {
-    //         console.log('nothing is found')
-    //     } else {
-    //             var inputName = this.tasks[i].name;
-    //             var otherTasks = this.tasks.length - 1;
-    //             var index = taskNames.indexOf(this.tasks[i].name);
-    //             console.log('index:', index);
-    //             this.tasks.splice(index, otherTasks);
-    //
-    //             console.log('find:', this.tasks[i].name);
-    //
-    //         }
-    //     }
-    //
-    //         console.log('searchElement:', this.searchInput);
-    //         console.log('name:', taskNames)
-    // }
+    clearSearch() {
+        this.filteredRows.splice(0, this.filteredTasks.length);
+        this.showNotFilteredTasks = true;
+        this.showNotFilteredTasksChange.emit(true);
+        this.searchInput = null;
+    }
 }
