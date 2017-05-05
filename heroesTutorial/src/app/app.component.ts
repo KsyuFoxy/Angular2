@@ -10,6 +10,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
           <nav>
               <a routerLink="/persons">VoltAge Team</a>
               <a routerLink="/tasks">Task board</a>
+              <a routerLink="/modal">Modal window</a>
           </nav>
           <router-outlet></router-outlet>
     </section>
