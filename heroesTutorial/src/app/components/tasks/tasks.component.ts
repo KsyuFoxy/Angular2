@@ -16,9 +16,6 @@ import { PipesComponent, FilterPipe } from './pipes.component';
   template: `
         <h2>All tasks:</h2>
         <search [(searchInput)]='searchInput' [(tasks)]='tasks' [(showNotFilteredTasks)]='showNotFilteredTasks'></search>
-
-        <pipes></pipes>
-
         <ul class='tasks' *ngIf='showNotFilteredTasks'>
             <li *ngFor='let task of tasks'
             (click)='onSelect(task)'
@@ -36,6 +33,8 @@ import { PipesComponent, FilterPipe } from './pipes.component';
                 Add a new task
         </button>
         <my-new-task [(isFormDisplayed)]='isFormDisplayed' [(newTask)]='emptyTask'></my-new-task>
+
+        <pipes [(tasks)]='tasks' [(task)]='task'></pipes>
 
   `,
   styleUrls: [ './tasks.component.css' ]
