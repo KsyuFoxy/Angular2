@@ -1,23 +1,20 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Pipe, PipeTransform, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 import { Task } from './task';
 
-@Pipe({name:'filter'})
+@Pipe({name:'myFilter'})
 
 export class FilterPipe implements PipeTransform {
     @Input() tasks: Task[];
     @Input() task: Task;
 
-  transform(value, exponent) {
-       console.log('value:', value);
-       console.log('exponent:', exponent);
-
-       if(!exponent)  return value;
-       var valueName = value.map(a => a.name.toLowerCase());
-        console.log('valueName:', valueName);
-       return valueName.filter(item => item.indexOf(exponent) > -1);
-
+  transform(tasks, searchText) {
+      if (searchText) {
+          var filteredTasks = tasks.filter(item =>  item.name.toLowerCase().indexOf(searchText) !== -1)
+          return filteredTasks;
+      }
+      return tasks;
   }
 }
 
@@ -25,13 +22,12 @@ export class FilterPipe implements PipeTransform {
     selector: 'pipes',
     template:`
     <div class='pipes'>
-
         <h2>Alternative search</h2>
-           <input type="text" [(ngModel)]="filterText">
+           <input type="text" [(ngModel)]="filterText"/>
             <ul class='tasks'>
-                <li *ngFor="let task of tasks| filter: filterText">
+                <li *ngFor="let task of tasks| myFilter: filterText">
                         <span class='task-id'>{{task.id}}</span>
-                    {{task}}
+                    {{task.name}}
                 </li>
             </ul>
     <div>
@@ -42,5 +38,4 @@ export class FilterPipe implements PipeTransform {
 export class PipesComponent {
     @Input() tasks: Task[];
     @Input() task: Task;
-
 }
