@@ -18,6 +18,7 @@ li, input, textarea, label, p {
 }
 button {
     width: 8em;
+    margin: 10px;
     padding: 0.5em;
     font-family: TitilliumSemibold;
     background-color: #ef84a8;
@@ -25,8 +26,20 @@ button {
     cursor: pointer;
 }
 .person-data {
-    text-align: left;
-    margin-left: 250px;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+.person-image {
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    border: 1px solid grey;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.person-image img {
+    width: 100%;
 }
 /* modal */
 .modal {
@@ -64,4 +77,7 @@ input {
 }
 .app-modal-footer {
     padding-top: 20px;
+}
+.add-person {
+    background-color: #84c686; /*green*/
 }

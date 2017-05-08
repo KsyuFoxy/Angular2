@@ -2,6 +2,9 @@
   background-color: #CFD8DC;
   color: white;
 }
+.notDisplay {
+    display: none;
+}
 .persons .available  {
     background-color: #DDD; /*grey*/
     color: #f87aa5; /*red*/

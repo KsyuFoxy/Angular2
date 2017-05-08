@@ -21,6 +21,7 @@ import { PersonService } from './person.service';
             <p class='name'>{{person.name}}</p>
         </section>
     </div>
+    <modal [(newPerson)]='newPerson' [class.notDisplay]='!notDisplay'></modal>
     <my-person-details [person]='selectedPerson' [(notAvailable)]='notAvailable' [(chosenAvailability)]='chosenAvailability'></my-person-details>
   `,
   styleUrls: [ './persons.component.css' ]
@@ -31,6 +32,7 @@ export class PersonsComponent implements OnInit {
     persons: Person[];
     notAvailable: boolean;
     chosenAvailability: boolean;
+    newPerson: Person;
 
     constructor(private _personService: PersonService) { }
 

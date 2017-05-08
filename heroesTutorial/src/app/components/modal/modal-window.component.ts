@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, OnChanges, EventEmitter, ViewChild} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild} from '@angular/core';
 // import { trigger, state, style, animate, transition } from '@angular/animations';
-
 
 @Component({
   selector: 'modal-window',
@@ -29,17 +28,41 @@ export class ModalDialog {
 
   public visible = false;
   private visibleAnimate = false;
+  @Input() person;
+
+  @Input() added = true;
+  @Output() addedChange = new EventEmitter();
 
   constructor(){}
 
   public show(): void {
     this.visible = true;
+    this.person.id = '';
+    this.person.name = '';
+    this.person.image = '';
+    this.person.isSaved = false;
     setTimeout(() => this.visibleAnimate = true, 100);
+
+  }
+  public edit(): void {
+      this.visible = true;
+      this.person.isSaved = false;
+      setTimeout(() => this.visibleAnimate = true, 100);
   }
 
   public hide(): void {
     this.visibleAnimate = false;
+    this.person.isSaved = true;
+    this.added = false;
+    this.addedChange.emit(this.added);
     setTimeout(() => this.visible = false, 300);
+  }
+  public delete(): void {
+     this.visibleAnimate = false;
+     this.person.isSaved = false;
+     this.added = false;
+     this.addedChange.emit(this.added);
+     setTimeout(() => this.visible = false, 300);
   }
 
   public onContainerClicked(event: MouseEvent): void {
